@@ -17,13 +17,13 @@ import FormatShapesIcon from "@mui/icons-material/FormatShapes";
 import SegmentIcon from "@mui/icons-material/Segment";
 import style from "./Navbar.module.css";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className={style.main}>
       <span className={style.container1}>
-        <FormatBoldIcon style={{ fontSize: "22" }} />
-        <FormatItalicIcon style={{ fontSize: "22" }} />
-        <FormatUnderlinedIcon style={{ fontSize: "22" }} />
+        <FormatBoldIcon style={{ fontSize: "22" }} onClick={props.handlebold}/>
+        <FormatItalicIcon style={{ fontSize: "22" }} onClick={props.handleItalic} />
+        <FormatUnderlinedIcon style={{ fontSize: "22" }} onClick={props.handleUnderline} />
         <GoogleIcon style={{ fontSize: "18" }} />
       </span>
 

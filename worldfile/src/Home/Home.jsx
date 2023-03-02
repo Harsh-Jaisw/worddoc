@@ -3,22 +3,57 @@ import Navbar from "../Navbar/Navbar";
 import style from "./Home.module.css";
 
 function Home() {
-  const [selectedvalue, setSelectedValue] = useState("");
-  function handleSelect(e) {
-    setSelectedValue(e.target.value);
+    const [selectedWord, setSelectedWord] = useState('');
+
+  function handleSelection() {
+    const selection = window.getSelection();
+    const selectedWord = selection.toString().trim();
+    setSelectedWord(selectedWord);
+  }
+  function handleBold() {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const selectedWord = selection.toString().trim();
+    if (selectedWord) {
+      const newNode = document.createElement('b');
+      newNode.appendChild(document.createTextNode(selectedWord));
+      range.deleteContents();
+      range.insertNode(newNode);
+    }
+  }
+  function handleUnderline() {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const selectedWord = selection.toString().trim();
+    if (selectedWord) {
+      const newNode = document.createElement('u');
+      newNode.appendChild(document.createTextNode(selectedWord));
+      range.deleteContents();
+      range.insertNode(newNode);
+    }
+  }
+  function handleItalic() {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const selectedWord = selection.toString().trim();
+    if (selectedWord) {
+      const newNode = document.createElement('i');
+      newNode.appendChild(document.createTextNode(selectedWord));
+      range.deleteContents();
+      range.insertNode(newNode);
+    }
   }
   return (
     <div className={style.main}>
-      <Navbar />
+      <Navbar 
+      handlebold={handleBold}
+      handleUnderline={handleUnderline}
+      handleItalic={handleItalic}
+      />
       <div className={style.box}>
-        <textarea
-          name="w3review"
-          rows="999"
-          cols="999"
-          onChange={(e) => handleSelect(e)}
-          className={style.text}
-          value={selectedvalue}
-        />
+      <p className={style.text} onMouseUp={handleSelection} contentEditable={true}>
+         
+        </p>
       </div>
     </div>
   );
