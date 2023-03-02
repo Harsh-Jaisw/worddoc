@@ -11,10 +11,12 @@ import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 import SubscriptIcon from "@mui/icons-material/Subscript";
 import SuperscriptIcon from "@mui/icons-material/Superscript";
-import HeightIcon from "@mui/icons-material/Height";
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import TextFormatIcon from "@mui/icons-material/TextFormat";
 import FormatShapesIcon from "@mui/icons-material/FormatShapes";
-import SegmentIcon from "@mui/icons-material/Segment";
+// import SegmentIcon from "@mui/icons-material/Segment";
+import TextDecreaseIcon from '@mui/icons-material/TextDecrease';
+import TextIncreaseIcon from '@mui/icons-material/TextIncrease';
 import style from "./Navbar.module.css";
 
 function Navbar(props) {
@@ -28,8 +30,9 @@ function Navbar(props) {
       </span>
 
       <span className={style.container1}>
-        <h2>H1</h2>
-        <h2>H2</h2>
+       
+        <TextDecreaseIcon style={{ fontSize: "22" }}  onClick={props.handleFontSizeh1}/>
+        <TextIncreaseIcon style={{ fontSize: "22" }}  onClick={props.handleFontSizeh2}/>
       </span>
       <span className={style.container1}>
         <FormatSizeIcon style={{ fontSize: "22" }} />
@@ -50,19 +53,19 @@ function Navbar(props) {
       </span>
       <span className={style.container1}>
         <p>Normal</p>
-        <HeightIcon />
+        <UnfoldMoreIcon />
       </span>
       <span className={style.container1}>
         <p>Normal</p>
-        <HeightIcon />
+        <UnfoldMoreIcon />
       </span>
       <span className={style.container1}>
-        <TextFormatIcon />
+        <TextFormatIcon onClick={props.handlebackgroundhighlight}/>
         <FormatShapesIcon style={{ fontSize: "22" }} />
       </span>
       <span className={style.container1}>
         <p>Sans Serif</p>
-        <HeightIcon />
+        <UnfoldMoreIcon />
       </span>
     </div>
   );
