@@ -23,3 +23,37 @@ justify-content: center;
 .container1 h2{
     font-size: 18px;
 }
+.fontsizecontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ flex-direction: row;
+
+}
+.fontlist{
+background-color: rgb(255, 255, 255);
+margin-top: 11rem;
+z-index: 999;
+list-style: none;
+width: 2.5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 3px;
+}
+.fontlist li{
+    background-color: rgb(185, 138, 75);
+
+cursor: pointer;
+
+}
+.colorbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputbox{
+    width: 15px;
+    height: 15px;
+}
