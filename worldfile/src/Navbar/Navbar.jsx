@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import FormatBoldIcon from "@mui/icons-material/FormatBold";
-import FormatItalicIcon from "@mui/icons-material/FormatItalic";
-import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import GoogleIcon from "@mui/icons-material/Google";
+import ColorLensIcon from '@mui/icons-material/ColorLens';
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
-import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
-import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
-import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 import SubscriptIcon from "@mui/icons-material/Subscript";
@@ -14,46 +8,84 @@ import SuperscriptIcon from "@mui/icons-material/Superscript";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import TextFormatIcon from "@mui/icons-material/TextFormat";
 import FormatShapesIcon from "@mui/icons-material/FormatShapes";
-import LooksOneIcon from "@mui/icons-material/LooksOne";
-import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
-import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
 import style from "./Navbar.module.css";
-import LooksTwoIcon from "@mui/icons-material/LooksTwo";
-import Looks3Icon from "@mui/icons-material/Looks3";
-import Looks4Icon from "@mui/icons-material/Looks4";
-import Looks5Icon from "@mui/icons-material/Looks5";
-import Looks6Icon from "@mui/icons-material/Looks6";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import AddReactionIcon from "@mui/icons-material/AddReaction";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import { icons, textPosition, textalign ,Emoji} from "../ConstData/ConstData";
+
 function Navbar(props) {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
+  const [show3, setShow3] = useState(false);
   const [color, setColor] = useState("");
+  const [font, setFont] = useState("");
+  const [position, setPosition] = useState("");
+  const [align, setAlign] = useState("");
+  const [emoji, setEmoji] = useState("");
+  const[show4, setShow4]=useState("")
+function  handleAlignment(element){
+  setAlign(element.action)
+  document.execCommand(align);
+}
 
-  props.handleColor(color);
+  function handleColor(e) {
+    setColor(e.target.value);
+    document.execCommand("foreColor", "", color);
+  }
+  function handleFont(element) {
+    setFont(element.action);
+    document.execCommand("fontSize", "", font);
+  }
+  function handlebackgroundhighlight(e) {
+    setColor(e.target.value);
+    document.execCommand("backColor","",color)
+  }
+  function handlePosition(element) {
+    setPosition(element.action);
+    document.execCommand(position);
+  }
+function handleemoji(element){
+  setEmoji(element.icon);
+  document.execCommand('insertHTML', false, emoji);
+}
 
   return (
     <div className={style.main}>
       <span className={style.container1}>
-        <FormatBoldIcon style={{ fontSize: "22" }} onClick={props.handlebold} />
-        <FormatItalicIcon
-          style={{ fontSize: "22" }}
-          onClick={props.handleItalic}
-        />
-        <FormatUnderlinedIcon
-          style={{ fontSize: "22" }}
-          onClick={props.handleUnderline}
-        />
+        {textPosition.map((element) => (
+          <span onClick={() => handlePosition(element)}
+          // className={style.icon}
+          style={{ fontSize: "17px" ,fontWeight:"300"}}
+          >{element.icon }</span>
+        ))}
+
         <span className={style.colorbox}>
-          <GoogleIcon
-            style={{ fontSize: "18" }}
+          <ColorLensIcon
+            style={{ fontSize: "20" }}
             onClick={() => setShow1(!show1)}
           />
           {show1 ? (
             <>
-              {" "}
               <input
                 className={style.inputbox}
                 type="color"
-                onChange={(e) => setColor(e.target.value)}
+                onChange={(e) => handleColor(e)}
+              />
+            </>
+          ) : null}
+        </span>
+        <span className={style.colorbox}>
+          <BorderColorIcon
+            style={{ fontSize: "20" }}
+            onClick={() => setShow3(!show3)}
+          />
+          {show3 ? (
+            <>
+              <input
+                className={style.inputbox}
+                type="color"
+                onChange={(e) => handlebackgroundhighlight(e)}
               />
             </>
           ) : null}
@@ -61,30 +93,36 @@ function Navbar(props) {
       </span>
 
       <span className={style.container1}>
-        <TextDecreaseIcon
-          style={{ fontSize: "22" }}
-          onClick={props.handleFontSizeh1}
-        />
-        <TextIncreaseIcon
-          style={{ fontSize: "22" }}
-          onClick={props.handleFontSizeh2}
-        />
+        <div className={style.fontsizecontainer}>
+          <AddReactionIcon
+            style={{ fontSize: "19" }}
+            onClick={() => setShow4(!show4)}
+          />
+           {show4 ? (
+            <>
+              <div className={style.fontlist}>
+              {Emoji.map((element) => (
+                <p onClick={() => handleemoji(element)}>{element.icon}</p>
+              ))}
+            </div>
+            </>
+          ) : null}
+        </div>
+      </span>
+      <span>
+        <AddPhotoAlternateIcon style={{ fontSize: "19" }} />
       </span>
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
           <FormatSizeIcon
-            style={{ fontSize: "22" }}
+            style={{ fontSize: "21" }}
             onClick={() => setShow(!show)}
           />
           {show ? (
             <div className={style.fontlist}>
-              <LooksOneIcon onClick={props.font1} />
-              <LooksTwoIcon onClick={props.font2} />
-              <Looks3Icon onClick={props.font3} />
-              <Looks4Icon onClick={props.font4} />
-              <Looks5Icon onClick={props.font5} />
-              <Looks6Icon onClick={props.font6} />
-              <p onClick={props.font7}>7</p>
+              {icons.map((element) => (
+                <p onClick={() => handleFont(element)}>{element.icon}</p>
+              ))}
             </div>
           ) : (
             <></>
@@ -93,36 +131,32 @@ function Navbar(props) {
       </span>
 
       <span className={style.container1}>
-        <FormatAlignCenterIcon
-          style={{ fontSize: "22" }}
-          onClick={props.handlejustifyCenter}
-        />
-        <FormatAlignLeftIcon style={{ fontSize: "22" }} onClick={props.handlejustifyLeft}/>
-        <FormatAlignRightIcon style={{ fontSize: "22" }} onClick={props.handlejustifyRight}/>
+      {textalign.map((element) => (
+                <p onClick={() => handleAlignment(element)}>{element.icon}</p>
+              ))}
       </span>
       <span className={style.container1}>
-        <SubscriptIcon />
-        <SuperscriptIcon />
+        <SubscriptIcon style={{ fontSize: "21" }} />
+        <SuperscriptIcon style={{ fontSize: "21" }} />
       </span>
       <span className={style.container1}>
-        <FormatIndentDecreaseIcon style={{ fontSize: "22" }} />
-        <FormatIndentIncreaseIcon style={{ fontSize: "22" }} />
-      </span>
-      <span className={style.container1}>
-        <p >Normal</p>
-        <UnfoldMoreIcon onClick={props.handleremoveFormat}/>
+        <FormatIndentDecreaseIcon style={{ fontSize: "21" }} />
+        <FormatIndentIncreaseIcon style={{ fontSize: "21" }} />
       </span>
       <span className={style.container1}>
         <p>Normal</p>
-        <UnfoldMoreIcon />
+        <UnfoldMoreIcon onClick={props.handleremoveFormat} />
       </span>
       <span className={style.container1}>
-        <TextFormatIcon onClick={props.handlebackgroundhighlight} />
-        <FormatShapesIcon style={{ fontSize: "22" }} />
+        <TextFormatIcon style={{ fontSize: "21" }} />
+        <FormatShapesIcon style={{ fontSize: "21" }} />
       </span>
       <span className={style.container1}>
         <p>Sans Serif</p>
-        <UnfoldMoreIcon />
+        <UnfoldMoreIcon
+          style={{ fontSize: "21" }}
+          onClick={props.downloadFile}
+        />
       </span>
     </div>
   );
