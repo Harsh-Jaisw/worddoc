@@ -16,17 +16,6 @@ import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
 
-// export const script = [
-//   {
-//       icon: <UndoIcon   style={{ fontSize: "21px" }}/>,
-//       action: "undo",
-//     },
-//     {
-//       icon: <RedoIcon  style={{ fontSize: "21px" }}/>,
-//       action: "redo",
-//     }
-//   ]
-
 
 export const textalign = [
   {

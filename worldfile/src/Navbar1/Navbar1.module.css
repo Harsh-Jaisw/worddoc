@@ -49,3 +49,11 @@ color: gray;
         padding: 0.6rem;
         border-radius: 5px;
 }
+.input{
+    width: 10rem;
+    height: 1.5rem;
+    border: none;
+    outline: none;
+    font-size: 19px;
+
+}

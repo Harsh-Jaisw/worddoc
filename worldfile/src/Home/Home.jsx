@@ -5,8 +5,11 @@ import style from "./Home.module.css";
 import DownloadIcon from '@mui/icons-material/Download';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+
 function Home() {
- const[value,setValue]=useState("")
+const[value,setValue]=useState('Untitled Document')
+
+
   function handleremoveFormat(color) {
     document.execCommand("removeFormat");
   }
@@ -23,14 +26,17 @@ function Home() {
         compress: false,
       });
       pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
-      pdfDoc.save("document.pdf");
+      pdfDoc.save(`${value}.pdf`);
     }
   
   
 
   return (
     <div className={style.main}>
-      <Navbar1 />
+      <Navbar1 
+      setValue={setValue}
+      value={value}
+      />
       <Navbar
         handleremoveFormat={handleremoveFormat}
         downloadFile={downloadFile}
@@ -38,7 +44,7 @@ function Home() {
 
       <div className={style.box}>
         <p id="edit" className={style.txt} contentEditable={true}
-        onChange={(e)=>setValue(e.target.value)}
+      
         ></p>
     
       </div>
