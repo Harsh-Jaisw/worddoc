@@ -3,26 +3,29 @@ import Navbar from "../Navbar/Navbar";
 import Navbar1 from "../Navbar1/Navbar1";
 import style from "./Home.module.css";
 import DownloadIcon from '@mui/icons-material/Download';
-
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 function Home() {
  const[value,setValue]=useState("")
   function handleremoveFormat(color) {
     document.execCommand("removeFormat");
   }
 
-  const downloadFile = () => {
-    const link = document.createElement("a");
-    const content = document.querySelector("p").textContent; // Get the text content of the <p> element
-    
-    const file = new Blob([content], { type: "application/pdf" }); // Set the correct MIME type for a PDF file
-    console.log(file)
-    link.href = URL.createObjectURL(file);
-    link.download = "sample.pdf";
-    document.body.appendChild(link); // Append the link to the DOM before clicking it
-    link.click();
-    document.body.removeChild(link); // Remove the link from the DOM after it's clicked
-    URL.revokeObjectURL(link.href);
-  };
+
+    async function downloadFile() {
+      const sheetContent = document.getElementById('edit');
+      const canvas = await html2canvas(sheetContent, { dpi: 300 });
+      const imageData = canvas.toDataURL("image/png", 1.0);
+      const pdfDoc = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: false,
+      });
+      pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
+      pdfDoc.save("document.pdf");
+    }
+  
   
 
   return (
@@ -34,7 +37,7 @@ function Home() {
       />
 
       <div className={style.box}>
-        <p className={style.txt} contentEditable={true}
+        <p id="edit" className={style.txt} contentEditable={true}
         onChange={(e)=>setValue(e.target.value)}
         ></p>
     

@@ -19,11 +19,9 @@ function Navbar(props) {
   const [show1, setShow1] = useState(false);
   const [show3, setShow3] = useState(false);
   const [color, setColor] = useState("");
-  const [font, setFont] = useState("");
   const [position, setPosition] = useState("");
   const [align, setAlign] = useState("");
-  const [emoji, setEmoji] = useState("");
-  const [show4, setShow4] = useState("");
+
   // const [image, setImage] = useState("");
   // const inputRef = useRef(null);
   function handleAlignment(element) {
@@ -35,9 +33,9 @@ function Navbar(props) {
     setColor(e.target.value);
     document.execCommand("foreColor", "", color);
   }
-  function handleFont(element) {
-    setFont(element.action);
-    document.execCommand("fontSize", "", font);
+  function handleFont(e) {
+    // setFont(e.target.value);
+    document.execCommand("fontSize", "", e.target.value);
   }
   function handlebackgroundhighlight(e) {
     setColor(e.target.value);
@@ -47,9 +45,29 @@ function Navbar(props) {
     setPosition(element.action);
     document.execCommand(position);
   }
-  function handleemoji(element) {
-    setEmoji(element.icon);
-    document.execCommand("insertHTML", false, emoji);
+
+
+  function handleemoji(e) {
+
+    if(e.target.value === 'smile'){
+      document.execCommand("insertHTML", false, "&#128516");
+    }
+    if(e.target.value === 'angry'){
+      document.execCommand("insertHTML", false, "&#128520");
+    }
+    if(e.target.value === 'love'){
+      document.execCommand("insertHTML", false, "&#128525");
+    }
+    if(e.target.value === 'kiss'){
+      document.execCommand("insertHTML", false, "&#128536");
+    }
+    if(e.target.value === 'thumup'){
+      document.execCommand("insertHTML", false, "&#128077");
+    }
+    if(e.target.value === 'thumdown'){
+      document.execCommand("insertHTML", false, "&#128078");
+    }
+   
   }
 
 
@@ -96,25 +114,21 @@ function Navbar(props) {
         <div className={style.fontsizecontainer}>
           <AddReactionIcon
             style={{ fontSize: "18px", fontWeight: "400",marginTop:'-0.5rem'  }}
-            onClick={() => setShow4(!show4)}
           />
-          {show4 ? (
-            <>
               <div className={style.fontlist}>
+              <select onChange={(e) => handleemoji(e)}>
+                <option>emojis</option>
                 {Emoji.map((element) => (
-                  <p onClick={() => handleemoji(element)}>{element.icon}</p>
+                   <option >{element.icon}</option>
                 ))}
+                </select>
               </div>
-            </>
-          ) : null}
+          
         </div>
         <div>
           <AddPhotoAlternateIcon
             style={{ fontSize: "20", marginLeft: "7px",marginTop:'-0.5rem',fontWeight:'lighter' }}
-   
-    
           />
-        
         </div>
       </span>
 
@@ -122,17 +136,18 @@ function Navbar(props) {
         <div className={style.fontsizecontainer}>
           <FormatSizeIcon
             style={{ fontSize: "21",marginTop:'-0.5rem'  }}
-            onClick={() => setShow(!show)}
+      
           />
-          {show ? (
             <div className={style.fontlist}>
+              <select onChange={(e) => handleFont(e)}>
+              <option>1</option>
               {icons.map((element) => (
-                <p onClick={() => handleFont(element)}>{element.icon}</p>
+                  <option >{element.icon}</option>
+              
               ))}
+              </select>
             </div>
-          ) : (
-            <></>
-          )}
+          
         </div>
       </span>
 

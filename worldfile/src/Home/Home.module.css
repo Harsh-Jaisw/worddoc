@@ -24,6 +24,7 @@
 .txt{
     width: 100%;
 height:600px;
+padding: 6rem;
 }
 *:focus {
     outline: none;
@@ -32,6 +33,7 @@ height:600px;
 .text{
 width: 100%;
 height:600px;
+
 
 }
 .btn{

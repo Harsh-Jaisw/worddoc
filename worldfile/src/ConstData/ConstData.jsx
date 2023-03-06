@@ -1,9 +1,4 @@
-import LooksTwoIcon from "@mui/icons-material/LooksTwo";
-import Looks3Icon from "@mui/icons-material/Looks3";
-import Looks4Icon from "@mui/icons-material/Looks4";
-import Looks5Icon from "@mui/icons-material/Looks5";
-import Looks6Icon from "@mui/icons-material/Looks6";
-import LooksOneIcon from "@mui/icons-material/LooksOne";
+
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
@@ -34,39 +29,49 @@ export const textalign = [
 
 export const Emoji = [
   {
-    icon:'smile',
-    action: "&#x1F600",
+    icon:'smile'
+  },
+  {
+    icon:'angry'
+  },
+  {
+    icon:'love'
+  },
+  {
+    icon:'kiss'
+  },
+  {
+    icon:'thumup'
+  },
+  {
+    icon:'thumdown'
   }
 
 ]
 
-
-
-
-
 export const icons = [
     {
-      icon: <LooksOneIcon />,
+      icon: 1,
       action: "1",
     },
     {
-      icon: <LooksTwoIcon />,
+      icon: 2,
       action: "2",
     },
     {
-      icon: <Looks3Icon />,
+      icon: 3,
       action: "3",
     },
     {
-      icon: <Looks4Icon />,
+      icon: 4,
       action: "4",
     },
     {
-      icon: <Looks5Icon />,
+      icon:5,
       action: "5",
     },
     {
-      icon: <Looks6Icon />,
+      icon: 6,
       action: "6",
     },
     {
