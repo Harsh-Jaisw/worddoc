@@ -25,7 +25,7 @@ const printDiv = useRef("");
         format: "a4",
         compress: false,
       });
-      pdfDoc.addImage(imageData, "PNG", 0, 0, 210, 297, "", "FAST");
+      pdfDoc.addImage(imageData, "PNG", 0, 30, 210, 297, "", "FAST");
       pdfDoc.save(`${value}.pdf`);
     }
   
