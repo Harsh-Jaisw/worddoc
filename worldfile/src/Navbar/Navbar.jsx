@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ColorLensIcon from '@mui/icons-material/ColorLens';
+import React, { useState, useRef } from "react";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
@@ -12,7 +12,7 @@ import style from "./Navbar.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import { icons, textPosition, textalign ,Emoji} from "../ConstData/ConstData";
+import { icons, textPosition, textalign, Emoji } from "../ConstData/ConstData";
 
 function Navbar(props) {
   const [show, setShow] = useState(false);
@@ -23,11 +23,13 @@ function Navbar(props) {
   const [position, setPosition] = useState("");
   const [align, setAlign] = useState("");
   const [emoji, setEmoji] = useState("");
-  const[show4, setShow4]=useState("")
-function  handleAlignment(element){
-  setAlign(element.action)
-  document.execCommand(align);
-}
+  const [show4, setShow4] = useState("");
+  // const [image, setImage] = useState("");
+  // const inputRef = useRef(null);
+  function handleAlignment(element) {
+    setAlign(element.action);
+    document.execCommand(align);
+  }
 
   function handleColor(e) {
     setColor(e.target.value);
@@ -39,30 +41,28 @@ function  handleAlignment(element){
   }
   function handlebackgroundhighlight(e) {
     setColor(e.target.value);
-    document.execCommand("backColor","",color)
+    document.execCommand("backColor", "", color);
   }
   function handlePosition(element) {
     setPosition(element.action);
     document.execCommand(position);
   }
-function handleemoji(element){
-  setEmoji(element.icon);
-  document.execCommand('insertHTML', false, emoji);
-}
+  function handleemoji(element) {
+    setEmoji(element.icon);
+    document.execCommand("insertHTML", false, emoji);
+  }
+
 
   return (
     <div className={style.main}>
       <span className={style.container1}>
         {textPosition.map((element) => (
-          <span onClick={() => handlePosition(element)}
-          // className={style.icon}
-          style={{ fontSize: "17px" ,fontWeight:"300"}}
-          >{element.icon }</span>
+          <span onClick={() => handlePosition(element)}>{element.icon}</span>
         ))}
 
         <span className={style.colorbox}>
           <ColorLensIcon
-            style={{ fontSize: "20" }}
+            style={{ fontSize: "19px",marginTop:'-0.5rem' }}
             onClick={() => setShow1(!show1)}
           />
           {show1 ? (
@@ -77,7 +77,7 @@ function handleemoji(element){
         </span>
         <span className={style.colorbox}>
           <BorderColorIcon
-            style={{ fontSize: "20" }}
+            style={{ fontSize: "18px",marginTop:'-0.5rem'  }}
             onClick={() => setShow3(!show3)}
           />
           {show3 ? (
@@ -95,27 +95,33 @@ function handleemoji(element){
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
           <AddReactionIcon
-            style={{ fontSize: "19" }}
+            style={{ fontSize: "18px", fontWeight: "400",marginTop:'-0.5rem'  }}
             onClick={() => setShow4(!show4)}
           />
-           {show4 ? (
+          {show4 ? (
             <>
               <div className={style.fontlist}>
-              {Emoji.map((element) => (
-                <p onClick={() => handleemoji(element)}>{element.icon}</p>
-              ))}
-            </div>
+                {Emoji.map((element) => (
+                  <p onClick={() => handleemoji(element)}>{element.icon}</p>
+                ))}
+              </div>
             </>
           ) : null}
         </div>
+        <div>
+          <AddPhotoAlternateIcon
+            style={{ fontSize: "20", marginLeft: "7px",marginTop:'-0.5rem',fontWeight:'lighter' }}
+   
+    
+          />
+        
+        </div>
       </span>
-      <span>
-        <AddPhotoAlternateIcon style={{ fontSize: "19" }} />
-      </span>
+
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
           <FormatSizeIcon
-            style={{ fontSize: "21" }}
+            style={{ fontSize: "21",marginTop:'-0.5rem'  }}
             onClick={() => setShow(!show)}
           />
           {show ? (
@@ -131,9 +137,9 @@ function handleemoji(element){
       </span>
 
       <span className={style.container1}>
-      {textalign.map((element) => (
-                <p onClick={() => handleAlignment(element)}>{element.icon}</p>
-              ))}
+        {textalign.map((element) => (
+          <p onClick={() => handleAlignment(element)}>{element.icon}</p>
+        ))}
       </span>
       <span className={style.container1}>
         <SubscriptIcon style={{ fontSize: "21" }} />

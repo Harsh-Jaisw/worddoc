@@ -12,7 +12,7 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
-
+import style from "../Navbar/Navbar.module.css"
 
 
 export const textalign = [
@@ -78,24 +78,24 @@ export const icons = [
 
   export const textPosition = [
     {
-        icon: <UndoIcon />,
+        icon: <UndoIcon   style={{ fontSize: "21px" }}/>,
         action: "undo",
       },
       {
-        icon: <RedoIcon />,
+        icon: <RedoIcon  style={{ fontSize: "21px" }}/>,
         action: "redo",
       },
     
     {
-      icon: <FormatBoldIcon />,
+      icon: <FormatBoldIcon  style={{ fontSize: "21px" }}/>,
       action: "bold",
     },
     {
-      icon: <FormatItalicIcon />,
+      icon: <FormatItalicIcon  style={{ fontSize: "21px" }}/>,
       action: "italic",
     },
     {
-      icon: <FormatUnderlinedIcon />,
+      icon: <FormatUnderlinedIcon  style={{ fontSize: "21px" }}/>,
       action: "underline",
     }
     

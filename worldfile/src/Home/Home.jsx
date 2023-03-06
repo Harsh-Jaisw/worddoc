@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Navbar1 from "../Navbar1/Navbar1";
 import style from "./Home.module.css";
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import DownloadIcon from '@mui/icons-material/Download';
 
 function Home() {
  const[value,setValue]=useState("")
@@ -38,13 +37,9 @@ function Home() {
         <p className={style.txt} contentEditable={true}
         onChange={(e)=>setValue(e.target.value)}
         ></p>
-          <Fab size="small" color="secondary" aria-label="add" 
-     className={style.floaticon}
-     >
-        <AddIcon />
-      </Fab>
-      </div>
     
+      </div>
+    <button onClick={ downloadFile}  className={style.floaticon}><DownloadIcon style={{fontSize:"35px",color:"white"}}/></button>
     </div>
   );
 }
