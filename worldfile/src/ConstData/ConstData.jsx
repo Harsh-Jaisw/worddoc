@@ -7,7 +7,21 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import style from "../Navbar/Navbar.module.css"
+
+
+// export const script = [
+//   {
+//       icon: <UndoIcon   style={{ fontSize: "21px" }}/>,
+//       action: "undo",
+//     },
+//     {
+//       icon: <RedoIcon  style={{ fontSize: "21px" }}/>,
+//       action: "redo",
+//     }
+//   ]
 
 
 export const textalign = [
@@ -22,6 +36,14 @@ export const textalign = [
   {
     icon: <FormatAlignRightIcon/>,
     action: "justifyRight",
+  },
+  {
+    icon: <FormatListNumberedIcon />,
+    action:"insertOrderedList",
+  },
+  {
+    icon: <FormatListBulletedIcon/>,
+    action: "insertUnorderedList",
   }
  
 ]

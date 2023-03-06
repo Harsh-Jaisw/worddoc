@@ -15,15 +15,14 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { icons, textPosition, textalign, Emoji } from "../ConstData/ConstData";
 
 function Navbar(props) {
-  const [show, setShow] = useState(false);
+
   const [show1, setShow1] = useState(false);
   const [show3, setShow3] = useState(false);
   const [color, setColor] = useState("");
   const [position, setPosition] = useState("");
   const [align, setAlign] = useState("");
 
-  // const [image, setImage] = useState("");
-  // const inputRef = useRef(null);
+  const inputRef = useRef(null);
   function handleAlignment(element) {
     setAlign(element.action);
     document.execCommand(align);
@@ -31,19 +30,19 @@ function Navbar(props) {
 
   function handleColor(e) {
     setColor(e.target.value);
-    document.execCommand("foreColor", "", color);
+    document.execCommand("foreColor", "", e.target.value);
   }
   function handleFont(e) {
     // setFont(e.target.value);
     document.execCommand("fontSize", "", e.target.value);
   }
   function handlebackgroundhighlight(e) {
-    setColor(e.target.value);
-    document.execCommand("backColor", "", color);
+    // setColor(e.target.value);
+    document.execCommand("backColor", "", e.target.value);
   }
   function handlePosition(element) {
-    setPosition(element.action);
-    document.execCommand(position);
+    // setPosition(element.action);
+    document.execCommand(element.action);
   }
 
 
@@ -68,6 +67,15 @@ function Navbar(props) {
       document.execCommand("insertHTML", false, "&#128078");
     }
    
+  }
+  function handleImageOpen() {
+    inputRef.current.click()
+  }
+  function captureImage(event) {
+    if (event.target.files[0] ) {
+      console.log(event.target.files[0])
+      document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
+    }
   }
 
 
@@ -112,9 +120,9 @@ function Navbar(props) {
 
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
-          <AddReactionIcon
+          {/* <AddReactionIcon
             style={{ fontSize: "18px", fontWeight: "400",marginTop:'-0.5rem'  }}
-          />
+          /> */}
               <div className={style.fontlist}>
               <select onChange={(e) => handleemoji(e)}>
                 <option>emojis</option>
@@ -127,17 +135,24 @@ function Navbar(props) {
         </div>
         <div>
           <AddPhotoAlternateIcon
+          onClick={handleImageOpen}
             style={{ fontSize: "20", marginLeft: "7px",marginTop:'-0.5rem',fontWeight:'lighter' }}
+          />
+          <input 
+          onChange={captureImage}
+          hidden
+          ref={inputRef}
+          type="file"
           />
         </div>
       </span>
 
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
-          <FormatSizeIcon
+          {/* <FormatSizeIcon
             style={{ fontSize: "21",marginTop:'-0.5rem'  }}
       
-          />
+          /> */}
             <div className={style.fontlist}>
               <select onChange={(e) => handleFont(e)}>
               <option>1</option>
