@@ -10,7 +10,10 @@ import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import style from "../Navbar/Navbar.module.css"
-
+import SubscriptIcon from "@mui/icons-material/Subscript";
+import SuperscriptIcon from "@mui/icons-material/Superscript";
+import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
+import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
 
 // export const script = [
 //   {
@@ -43,6 +46,22 @@ export const textalign = [
   },
   {
     icon: <FormatListBulletedIcon/>,
+    action: "insertUnorderedList",
+  },
+  {
+    icon: <SubscriptIcon />,
+    action:"subscript",
+  },
+  {
+    icon: <SuperscriptIcon/>,
+    action: "superscript",
+  },
+  {
+    icon: <FormatIndentDecreaseIcon />,
+    action:"insertOrderedList",
+  },
+  {
+    icon: <FormatIndentIncreaseIcon/>,
     action: "insertUnorderedList",
   }
  

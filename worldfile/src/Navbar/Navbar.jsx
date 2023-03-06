@@ -1,16 +1,13 @@
 import React, { useState, useRef } from "react";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
-import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
-import SubscriptIcon from "@mui/icons-material/Subscript";
-import SuperscriptIcon from "@mui/icons-material/Superscript";
+
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import TextFormatIcon from "@mui/icons-material/TextFormat";
 import FormatShapesIcon from "@mui/icons-material/FormatShapes";
 import style from "./Navbar.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-import AddReactionIcon from "@mui/icons-material/AddReaction";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { icons, textPosition, textalign, Emoji } from "../ConstData/ConstData";
 
@@ -24,24 +21,20 @@ function Navbar(props) {
 
   const inputRef = useRef(null);
   function handleAlignment(element) {
-    setAlign(element.action);
-    document.execCommand(align);
+    // setAlign(element.action);
+    document.execCommand(element.action);
   }
 
   function handleColor(e) {
-    setColor(e.target.value);
     document.execCommand("foreColor", "", e.target.value);
   }
   function handleFont(e) {
-    // setFont(e.target.value);
     document.execCommand("fontSize", "", e.target.value);
   }
   function handlebackgroundhighlight(e) {
-    // setColor(e.target.value);
     document.execCommand("backColor", "", e.target.value);
   }
   function handlePosition(element) {
-    // setPosition(element.action);
     document.execCommand(element.action);
   }
 
@@ -149,10 +142,7 @@ function Navbar(props) {
 
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
-          {/* <FormatSizeIcon
-            style={{ fontSize: "21",marginTop:'-0.5rem'  }}
-      
-          /> */}
+
             <div className={style.fontlist}>
               <select onChange={(e) => handleFont(e)}>
               <option>1</option>
@@ -171,14 +161,7 @@ function Navbar(props) {
           <p onClick={() => handleAlignment(element)}>{element.icon}</p>
         ))}
       </span>
-      <span className={style.container1}>
-        <SubscriptIcon style={{ fontSize: "21" }} />
-        <SuperscriptIcon style={{ fontSize: "21" }} />
-      </span>
-      <span className={style.container1}>
-        <FormatIndentDecreaseIcon style={{ fontSize: "21" }} />
-        <FormatIndentIncreaseIcon style={{ fontSize: "21" }} />
-      </span>
+    
       <span className={style.container1}>
         <p>Normal</p>
         <UnfoldMoreIcon onClick={props.handleremoveFormat} />
