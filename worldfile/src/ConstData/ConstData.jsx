@@ -14,6 +14,7 @@ import SubscriptIcon from "@mui/icons-material/Subscript";
 import SuperscriptIcon from "@mui/icons-material/Superscript";
 import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
 import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
+import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
 
 // export const script = [
 //   {
@@ -58,14 +59,34 @@ export const textalign = [
   },
   {
     icon: <FormatIndentDecreaseIcon />,
-    action:"insertOrderedList",
+    action:"indent",
   },
   {
     icon: <FormatIndentIncreaseIcon/>,
-    action: "insertUnorderedList",
+    action: "outdent",
   }
  
 ]
+
+export const fontFamilyList = [
+  "serif",
+  "arial",
+  "sans-serif",
+  "monospace",
+  "cursive",
+  "fantasy",
+  "system-ui",
+  "ui-serif",
+  "ui-sans-serif",
+  "ui-monospace",
+  "ui-rounded",
+  "emoji",
+  "math",
+  "fangsong",
+  "Georgia",
+  "Times New Roman",
+  "Impact",
+];
 
 
 export const Emoji = [
@@ -143,6 +164,10 @@ export const icons = [
     {
       icon: <FormatUnderlinedIcon  style={{ fontSize: "21px" }}/>,
       action: "underline",
+    },
+    {
+      icon: <StrikethroughSIcon  style={{ fontSize: "21px" }}/>,
+      action: "strikeThrough",
     }
     
   ];

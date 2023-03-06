@@ -9,19 +9,16 @@ import FormatShapesIcon from "@mui/icons-material/FormatShapes";
 import style from "./Navbar.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import { icons, textPosition, textalign, Emoji } from "../ConstData/ConstData";
+import { icons, textPosition, textalign, Emoji,fontFamilyList } from "../ConstData/ConstData";
 
 function Navbar(props) {
 
   const [show1, setShow1] = useState(false);
   const [show3, setShow3] = useState(false);
-  const [color, setColor] = useState("");
-  const [position, setPosition] = useState("");
-  const [align, setAlign] = useState("");
 
   const inputRef = useRef(null);
+  
   function handleAlignment(element) {
-    // setAlign(element.action);
     document.execCommand(element.action);
   }
 
@@ -36,6 +33,9 @@ function Navbar(props) {
   }
   function handlePosition(element) {
     document.execCommand(element.action);
+  }
+  function handlefamily(e){
+    document.execCommand("fontName", "", e.target.value);
   }
 
 
@@ -171,11 +171,15 @@ function Navbar(props) {
         <FormatShapesIcon style={{ fontSize: "21" }} />
       </span>
       <span className={style.container1}>
-        <p>Sans Serif</p>
-        <UnfoldMoreIcon
-          style={{ fontSize: "21" }}
-          onClick={props.downloadFile}
-        />
+      <div className={style.fontlist}>
+              <select onChange={(e) => handlefamily(e)}>
+              <option>san-sherif</option>
+              {fontFamilyList.map((element) => (
+                  <option >{element}</option>
+              
+              ))}
+              </select>
+            </div>
       </span>
     </div>
   );
