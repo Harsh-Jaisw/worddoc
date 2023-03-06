@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useRef} from "react";
 import Navbar from "../Navbar/Navbar";
 import Navbar1 from "../Navbar1/Navbar1";
 import style from "./Home.module.css";
@@ -8,7 +8,7 @@ import jsPDF from 'jspdf';
 
 function Home() {
 const[value,setValue]=useState('Untitled Document')
-
+const printDiv = useRef("");
 
   function handleremoveFormat(color) {
     document.execCommand("removeFormat");
@@ -40,10 +40,11 @@ const[value,setValue]=useState('Untitled Document')
       <Navbar
         handleremoveFormat={handleremoveFormat}
         downloadFile={downloadFile}
+        printDiv={printDiv}
       />
 
-      <div className={style.box}>
-        <p id="edit" className={style.txt} contentEditable={true}
+      <div className={style.box} ref={printDiv}>
+        <p  id="edit" className={style.txt} contentEditable={true}
       
         ></p>
     

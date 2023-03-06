@@ -56,6 +56,9 @@ export const textalign = [
   }
  
 ]
+export const scaleList = [
+  "100%", "150%" , "200%" ,"75%", "50%" , "25%"
+]
 
 export const fontFamilyList = [
   "serif",

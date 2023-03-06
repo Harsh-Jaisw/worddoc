@@ -8,6 +8,7 @@ align-items: center;
 justify-content: flex-start;
 /* padding-left: 2rem; */
 gap: 1rem;
+z-index: 6;
 }
 .innercontainer{
     display: flex;

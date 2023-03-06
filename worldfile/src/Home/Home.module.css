@@ -10,7 +10,7 @@
 
 .box{
    
-
+z-index:5;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
  outline: none;
  padding: 2rem;
@@ -47,7 +47,7 @@ height:600px;
     top: 70%;
     width: 80px;
     height: 80px;
-
+z-index: 7;
     background-color: rgb(115, 115, 224);
     border: none;
     border-radius: 100%;

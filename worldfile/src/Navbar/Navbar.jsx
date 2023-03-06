@@ -1,23 +1,21 @@
 import React, { useState, useRef } from "react";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
-import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
-import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
-
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import TextFormatIcon from "@mui/icons-material/TextFormat";
 import FormatShapesIcon from "@mui/icons-material/FormatShapes";
 import style from "./Navbar.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import { icons, textPosition, textalign, Emoji,fontFamilyList } from "../ConstData/ConstData";
+import { icons, textPosition, textalign, Emoji,fontFamilyList ,scaleList} from "../ConstData/ConstData";
 
-function Navbar(props) {
+function Navbar({handleremoveFormat,printDiv}) {
 
   const [show1, setShow1] = useState(false);
   const [show3, setShow3] = useState(false);
+  const [scaleSize, setScaleSize] = useState("100%");
 
   const inputRef = useRef(null);
-  
+
   function handleAlignment(element) {
     document.execCommand(element.action);
   }
@@ -70,11 +68,40 @@ function Navbar(props) {
       document.execCommand("insertImage","",URL.createObjectURL(event.target.files[0]));
     }
   }
+  function handleScale(e) {
+    console.log(printDiv.current)
+    setScaleSize(e.target.value);
+    if (e.target.value === "100%") {
+      printDiv.current.style.transform = "scale(1,1)";
+    } else if (e.target.value === "150%") {
+      printDiv.current.style.transform = "scale(1.5,1)";
+    } else if (e.target.value === "200%") {
+      printDiv.current.style.transform = "scale(2,1)";
+    } else if (e.target.value === "50%") {
+      printDiv.current.style.transform = "scale(0.65,0.65)";
+    } else if (e.target.value === "25%") {
+      printDiv.current.style.transform = "scale(0.5,0.5)";
+    } else if (e.target.value === "75%") {
+      printDiv.current.style.transform = "scale(0.8,1)";
+    }
+  }
 
 
   return (
     <div className={style.main}>
       <span className={style.container1}>
+
+      <select
+          style={{width:"100%"}}
+            className={style.fontStyle}
+            id="fontStyle"
+            onChange={handleScale}
+          >
+            <option>{scaleSize}</option>
+            {scaleList.map((x) => (
+              <option  key={x}>{x}</option>
+            ))}
+          </select>
         {textPosition.map((element) => (
           <span onClick={() => handlePosition(element)}>{element.icon}</span>
         ))}
@@ -113,9 +140,7 @@ function Navbar(props) {
 
       <span className={style.container1}>
         <div className={style.fontsizecontainer}>
-          {/* <AddReactionIcon
-            style={{ fontSize: "18px", fontWeight: "400",marginTop:'-0.5rem'  }}
-          /> */}
+
               <div className={style.fontlist}>
               <select onChange={(e) => handleemoji(e)}>
                 <option>emojis</option>
@@ -164,7 +189,7 @@ function Navbar(props) {
     
       <span className={style.container1}>
         <p>Normal</p>
-        <UnfoldMoreIcon onClick={props.handleremoveFormat} />
+        <UnfoldMoreIcon onClick={handleremoveFormat} />
       </span>
       <span className={style.container1}>
         <TextFormatIcon style={{ fontSize: "21" }} />
