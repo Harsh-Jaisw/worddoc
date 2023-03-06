@@ -1,6 +1,6 @@
 .main{
     width: 100%;
-    height: 800px;
+    height: 1000px;
     background-color: rgb(248, 247, 247);
     display: flex;
     /* justify-content: center; */
@@ -16,15 +16,15 @@
  padding: 2rem;
     display: flex;
     width: 58%;
-    height: 500px;
+    height: 900px;
     margin-top: 9rem;
     background-color: white;
    
 }
 .txt{
     width: 100%;
-height:600px;
-padding: 6rem;
+height:900px;
+padding: 3rem;
 }
 *:focus {
     outline: none;
