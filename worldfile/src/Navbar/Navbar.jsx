@@ -163,23 +163,24 @@ function Navbar({handleremoveFormat,printDiv}) {
           type="file"
           />
         </div>
-      </span>
-
-      <span className={style.container1}>
         <div className={style.fontsizecontainer}>
 
-            <div className={style.fontlist}>
-              <select onChange={(e) => handleFont(e)}>
-              <option>1</option>
-              {icons.map((element) => (
-                  <option >{element.icon}</option>
-              
-              ))}
-              </select>
-            </div>
-          
-        </div>
+<div className={style.fontlist}>
+  <select onChange={(e) => handleFont(e)}>
+  <option>1</option>
+  {icons.map((element) => (
+      <option >{element.icon}</option>
+  
+  ))}
+  </select>
+</div>
+
+</div>
       </span>
+
+      {/* <span className={style.container1}>
+   
+      </span> */}
 
       <span className={style.container1}>
         {textalign.map((element) => (
@@ -190,13 +191,9 @@ function Navbar({handleremoveFormat,printDiv}) {
       <span className={style.container1}>
         <p>Normal</p>
         <UnfoldMoreIcon onClick={handleremoveFormat} />
-      </span>
-      <span className={style.container1}>
         <TextFormatIcon style={{ fontSize: "21" }} />
         <FormatShapesIcon style={{ fontSize: "21" }} />
-      </span>
-      <span className={style.container1}>
-      <div className={style.fontlist}>
+        <div className={style.fontlist}>
               <select onChange={(e) => handlefamily(e)}>
               <option>san-sherif</option>
               {fontFamilyList.map((element) => (
@@ -206,6 +203,12 @@ function Navbar({handleremoveFormat,printDiv}) {
               </select>
             </div>
       </span>
+      {/* <span className={style.container1}>
+       
+      </span> */}
+      {/* <span className={style.container1}>
+ 
+      </span> */}
     </div>
   );
 }

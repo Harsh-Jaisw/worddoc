@@ -14,6 +14,7 @@ z-index:5;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
  outline: none;
  padding: 2rem;
+ flex-wrap: wrap;
     display: flex;
     width: 58%;
     height: 900px;
@@ -36,10 +37,7 @@ height:600px;
 
 
 }
-.btn{
-    color:#fff;
-    background:blue;
-  }
+
 
   .floaticon{
     position: fixed;
@@ -51,4 +49,19 @@ z-index: 7;
     background-color: rgb(115, 115, 224);
     border: none;
     border-radius: 100%;
+  }
+
+  @media only screen and (max-width:760px) {
+    .box{
+        margin-top: 11rem;
+      
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    .floaticon{
+        width: 50px;
+        height: 50px;
+    }
   }
