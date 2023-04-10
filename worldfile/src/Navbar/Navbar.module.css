@@ -1,7 +1,9 @@
 
 *{margin: 0;
 padding: 0;}
-
+.textposition{
+  font-size: 21px;
+}
 .main{
    z-index: 6;
     border: 1px rgb(223, 220, 220) solid;

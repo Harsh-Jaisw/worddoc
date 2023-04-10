@@ -17,7 +17,7 @@ function Navbar1({setValue,value}) {
     <>
       <div className={style.main}>
         <div>
-          <DescriptionIcon style={{ fontSize: "40px", color: "blue" }} />
+          <DescriptionIcon style={{ fontSize: "40px", color: "#4285F4" }} />
         </div>
         <div className={style.innercontainer}>
           <h3>
@@ -42,14 +42,14 @@ function Navbar1({setValue,value}) {
           </span>
         </div>
 
-        <div className={style.innercontainer2}>
+        {/* <div className={style.innercontainer2}>
           <CommentIcon style={{ fontSize: "26", color: "gray" }} />
           <div className={style.share}>
             <p>
               <LockIcon style={{ fontSize: "15px" }} /> Share
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -56,7 +56,7 @@ export const textalign = [
  
 ]
 export const scaleList = [
-  "100%", "150%" , "200%" ,"75%", "50%" , "25%"
+  "25%", "50%" , "75%" ,"100%", "150%" , "200%"
 ]
 
 export const fontFamilyList = [
@@ -94,7 +94,7 @@ export const Emoji = [
     icon:'kiss'
   },
   {
-    icon:'thumup'
+    icon:'thumsup'
   },
   {
     icon:'thumdown'
@@ -131,33 +131,37 @@ export const icons = [
       icon: 7,
       action: "7",
     },
+    {
+      icon: 8,
+      action: "8",
+    },
   ];
 
 
   export const textPosition = [
     {
-        icon: <UndoIcon   style={{ fontSize: "21px" }}/>,
+        icon: <UndoIcon   />,
         action: "undo",
       },
       {
-        icon: <RedoIcon  style={{ fontSize: "21px" }}/>,
+        icon: <RedoIcon  />,
         action: "redo",
       },
     
     {
-      icon: <FormatBoldIcon  style={{ fontSize: "21px" }}/>,
+      icon: <FormatBoldIcon  />,
       action: "bold",
     },
     {
-      icon: <FormatItalicIcon  style={{ fontSize: "21px" }}/>,
+      icon: <FormatItalicIcon  />,
       action: "italic",
     },
     {
-      icon: <FormatUnderlinedIcon  style={{ fontSize: "21px" }}/>,
+      icon: <FormatUnderlinedIcon  />,
       action: "underline",
     },
     {
-      icon: <StrikethroughSIcon  style={{ fontSize: "21px" }}/>,
+      icon: <StrikethroughSIcon  />,
       action: "strikeThrough",
     }
     

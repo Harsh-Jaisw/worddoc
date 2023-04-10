@@ -8,13 +8,13 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      {/* <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}></Route>
       </Routes>
       
-      </BrowserRouter>
-     
+      </BrowserRouter> */}
+     <Home/>
     </div>
   )
 }

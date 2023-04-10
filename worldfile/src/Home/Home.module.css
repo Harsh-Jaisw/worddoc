@@ -42,11 +42,11 @@ height:600px;
   .floaticon{
     position: fixed;
     right:10%;
-    top: 70%;
-    width: 80px;
-    height: 80px;
-z-index: 7;
-    background-color: rgb(115, 115, 224);
+    top: 80%;
+    width: 50px;
+    height: 50px;
+/* z-index: 7; */
+    background-color:black;
     border: none;
     border-radius: 100%;
   }
